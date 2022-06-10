@@ -1,0 +1,8 @@
+Addr: nacos-cs.ops.svc.cluster.local
+Port: 8848
+Group: DEFAULT_GROUP
+DataID: demo-api
+ExtDataIDs:
+  - mysql
+  - auth
+NamespaceID: demo

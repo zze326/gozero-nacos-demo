@@ -1,0 +1,18 @@
+type (
+	GetUserReq {
+		ID int `path:"id"`
+	}
+
+	GetUserReply {
+		ID   int    `json:"id"`
+		Name string `json:"name"`
+	}
+)
+
+service demo {
+	@handler ping
+	get /ping
+	
+	@handler getUser
+	get /user/:id (GetUserReq) returns (GetUserReply)
+}

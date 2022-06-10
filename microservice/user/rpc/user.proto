@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package app;
+
+option go_package = "./app";
+
+
+message GetUserReq {
+  uint32 id = 1;
+}
+
+message GetUserReply {
+  uint32 id = 1;
+  string name = 2;
+}
+
+
+
+service user {
+  rpc GetUser(GetUserReq) returns(GetUserReply);
+}
