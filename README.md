@@ -50,7 +50,9 @@ commonConfig.MustRegister(commonConfig.MustLoad(*configFile, c), &c.RpcServerCon
 UserRpc: user.NewUser(nc.NewZrpcClient("user.rpc", c.Name)),
 ```
 
-> 这里的 `"user.rpc"` 为 user 服务注册到 nacos 中的项目名，该名称在 nacos 中进行配置，而 `c.Name` 其实也是取自 nacos 中的配置，即为当前服务的名称，后续我会进行截图展示。
+> 这里的 `"user.rpc"` 为 user 服务注册到 nacos 中的项目名，该名称在 nacos 中进行配置，而 `c.Name` 其实也是取自 nacos 中的配置，即为当前服务的名称，如下图：
+> [服务列表](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/service-list.png)
+> [服务消费者](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/consumer.png)
 
 也是只需要一行，就可以实例化一个 user 服务的 rpc 远程调用对象，将其置入 `ServiceContext` 中就可以在后续的 `logic` 中使用它完成 rpc 调用了。
 如 `demo/api/internal/logic/getUserLogic.go` 的第 28 行：
@@ -64,6 +66,21 @@ Id: uint32(req.ID),
 # 补充点
 
 ## 配置内容
+
+- 配置列表：
+  [data id 列表](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/config-list.png)
+
+- demo-api：
+  [demo-api](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/demo-api.png)
+
+- user-rpc
+  [user-rpc](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/user-rpc.png)
+
+- auth
+  [auth](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/auth.png)
+
+- mysql
+  [mysql](https://raw.githubusercontent.com/zze326/gozero-nacos-demo/master/imgs/mysql.png)
 
 ## nacos sdk 版本问题
 
